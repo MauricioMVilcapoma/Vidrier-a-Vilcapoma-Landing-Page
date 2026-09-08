@@ -89,6 +89,7 @@
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.5rem;
+  --site-header-height: 3.5rem;
   --sidebar: #ffffff;
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -140,6 +141,7 @@
 
   html {
     font-family: var(--font-inter), system-ui, sans-serif;
+    scroll-padding-top: calc(var(--site-header-height) + 0.75rem);
   }
 
   body {
@@ -169,6 +171,12 @@
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --site-header-height: 6rem;
   }
 }
 

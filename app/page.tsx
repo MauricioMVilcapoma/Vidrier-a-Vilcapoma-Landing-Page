@@ -450,7 +450,7 @@ function Header() {
   }, []);
 
   return (
-    <>
+    <div className="fixed inset-x-0 top-0 z-[1000]" data-site-header>
       <div className="hidden border-b border-white/10 bg-brand-navy px-6 py-2 text-xs text-slate-100 lg:block">
         <div className="section-shell flex items-center justify-between gap-6 px-0">
           <p className="flex min-w-0 items-center gap-2 font-medium">
@@ -467,7 +467,7 @@ function Header() {
       </div>
 
       <header
-        className={`sticky top-0 z-[100] border-b transition-all duration-300 ${
+        className={`border-b transition-all duration-300 ${
           hasScrolled
             ? 'border-slate-200/80 bg-white/[0.88] shadow-[0_10px_28px_-22px_rgba(15,23,42,0.8)] backdrop-blur-xl'
             : 'border-slate-200 bg-white/95 shadow-sm backdrop-blur-md'
@@ -549,7 +549,7 @@ function Header() {
           </div>
         </div>
       </header>
-    </>
+    </div>
   );
 }
 
@@ -1540,26 +1540,29 @@ function FloatingWhatsApp() {
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+    <main className="min-h-screen bg-white text-slate-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <Header />
-      <Hero />
-      <TrustStrip />
-      <Services />
-      <FramingSpotlight />
-      <Gallery />
-      <Solutions />
-      <WorkProcess />
-      <About />
-      <Slogan />
-      <Reviews />
-      <FAQ />
-      <Contact />
-      <FinalCTA />
-      <Footer />
+      <div aria-hidden="true" className="h-[var(--site-header-height)]" />
+      <div className="overflow-x-hidden">
+        <Hero />
+        <TrustStrip />
+        <Services />
+        <FramingSpotlight />
+        <Gallery />
+        <Solutions />
+        <WorkProcess />
+        <About />
+        <Slogan />
+        <Reviews />
+        <FAQ />
+        <Contact />
+        <FinalCTA />
+        <Footer />
+      </div>
       <FloatingWhatsApp />
     </main>
   );
