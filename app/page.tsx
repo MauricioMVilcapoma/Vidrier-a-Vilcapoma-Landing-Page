@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Check,
   ChevronDown,
@@ -436,6 +436,19 @@ function SectionIntro({
 }
 
 function Header() {
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateHeader = () => {
+      setHasScrolled(window.scrollY > 8);
+    };
+
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+
+    return () => window.removeEventListener('scroll', updateHeader);
+  }, []);
+
   return (
     <>
       <div className="hidden border-b border-white/10 bg-brand-navy px-6 py-2 text-xs text-slate-100 lg:block">
@@ -453,8 +466,14 @@ function Header() {
         </div>
       </div>
 
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-md">
-        <div className="section-shell flex min-h-16 items-center justify-between gap-3 py-2 lg:min-h-20">
+      <header
+        className={`sticky top-0 z-[100] border-b transition-all duration-300 ${
+          hasScrolled
+            ? 'border-slate-200/80 bg-white/[0.88] shadow-[0_10px_28px_-22px_rgba(15,23,42,0.8)] backdrop-blur-xl'
+            : 'border-slate-200 bg-white/95 shadow-sm backdrop-blur-md'
+        }`}
+      >
+        <div className="section-shell flex min-h-14 items-center justify-between gap-3 py-1.5 lg:min-h-16">
           <a
             href="#inicio"
             className="flex min-w-0 items-center gap-2.5"
@@ -465,7 +484,7 @@ function Header() {
               alt="Logo de Vidriería - Aluminios & Marquería “Vilcapoma”"
               width={240}
               height={239}
-              className="h-11 w-11 rounded bg-white object-contain shadow-sm lg:h-14 lg:w-14"
+              className="h-10 w-10 rounded bg-white object-contain shadow-sm lg:h-12 lg:w-12"
               loading="eager"
             />
             <span className="min-w-0 leading-tight">
@@ -498,13 +517,13 @@ function Header() {
               href={brand.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-whatsapp px-3.5 py-2 text-sm font-bold text-white shadow-md transition hover:bg-whatsapp-dark hover:shadow-lg"
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-whatsapp px-3.5 py-2 text-sm font-bold text-white shadow-md transition hover:bg-whatsapp-dark hover:shadow-lg"
             >
               <WhatsAppIcon className="h-4 w-4" />
               <span className="hidden sm:inline">WhatsApp</span>
             </a>
             <details className="group relative lg:hidden">
-              <summary className="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800 marker:hidden">
+              <summary className="flex min-h-10 min-w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-800 marker:hidden">
                 <Menu className="h-5 w-5 group-open:hidden" aria-hidden="true" />
                 <ChevronDown
                   className="hidden h-5 w-5 group-open:block"
@@ -513,7 +532,7 @@ function Header() {
                 <span className="sr-only">Abrir menú</span>
               </summary>
               <nav
-                className="absolute right-0 top-12 w-[min(88vw,320px)] rounded-xl border border-slate-200 bg-white p-3 text-sm font-semibold text-slate-700 shadow-xl"
+                className="absolute right-0 top-11 w-[min(88vw,320px)] rounded-xl border border-slate-200 bg-white/95 p-3 text-sm font-semibold text-slate-700 shadow-xl backdrop-blur-xl"
                 aria-label="Menú móvil"
               >
                 {navItems.map(([label, href]) => (
