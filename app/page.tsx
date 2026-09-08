@@ -283,23 +283,41 @@ const reviews = [
 ];
 
 const faqs = [
-  ['¿Realizan instalaciones de vidrio?', 'Sí.'],
-  ['¿Hacen trabajos a medida?', 'Sí.'],
   [
-    '¿Pueden venir a tomar las medidas?',
-    'Para los trabajos que requieren instalación, Vilcapoma toma directamente las medidas en el lugar.',
-  ],
-  ['¿Trabajan con vidrio templado?', 'Sí.'],
-  ['¿Atienden fuera de Breña?', 'Sí.'],
-  ['¿Realizan mantenimiento de mamparas?', 'Sí, cuando el trabajo lo amerita.'],
-  ['¿Cambian accesorios de ventanas corredizas?', 'Sí.'],
-  [
-    '¿Cómo solicito un trabajo?',
-    'Por WhatsApp, redes sociales o directamente en la tienda.',
+    '¿Realizan visitas para tomar medidas?',
+    'Sí. Para los trabajos que requieren instalación, nosotros mismos realizamos la toma de medidas en el lugar para garantizar un ajuste correcto.',
   ],
   [
-    '¿Qué métodos de pago aceptan?',
-    'Yape, Plin, transferencia bancaria y efectivo.',
+    '¿Qué tipo de trabajos realizan?',
+    'Realizamos enmarcados personalizados, corte e instalación de vidrios y espejos, mamparas, puertas y ventanas de aluminio, así como mantenimiento y reparaciones.',
+  ],
+  [
+    '¿Enmarcan diplomas, cuadros y lienzos?',
+    'Sí, realizamos enmarcados personalizados para cuadros, diplomas, fotos, títulos y lienzos, adaptándonos al estilo y medidas que necesites.',
+  ],
+  [
+    '¿Qué tipos de vidrio trabajan?',
+    'Trabajamos vidrio transparente, templado, laminado, bronce, catedral, incoloro y de colores, según los requerimientos de cada proyecto.',
+  ],
+  [
+    '¿Hacen trabajos para empresas u oficinas?',
+    'Sí, realizamos divisiones, mamparas y ventanas tanto para oficinas, comercios y locales como para viviendas particulares.',
+  ],
+  [
+    '¿Cómo puedo solicitar una cotización?',
+    'Puedes escribirnos por WhatsApp con las medidas aproximadas o fotos de referencia de lo que necesitas, o visitarnos directamente en nuestra tienda en Breña.',
+  ],
+  [
+    '¿Hacen servicio de mantenimiento o reparación?',
+    'Sí, atendemos cambio de vidrios rotos, mantenimiento de mamparas corredizas y cambio de accesorios de aluminio desgastados.',
+  ],
+  [
+    '¿Qué zonas o distritos atienden?',
+    'Atendemos en Breña y distintos distritos de Lima según el tipo de trabajo, incluyendo Pueblo Libre, Jesús María, Lince, San Miguel, Magdalena, San Isidro, San Borja, La Molina y Surco, entre otros.',
+  ],
+  [
+    '¿Cuánto tiempo toma la fabricación de un trabajo?',
+    'El tiempo depende de las características y volumen del trabajo solicitado. Al momento de evaluar tu proyecto te indicaremos el plazo estimado correspondiente.',
   ],
 ];
 
@@ -647,16 +665,7 @@ function Hero() {
               </div>
             </div>
           </div>
-          <div className="absolute -bottom-5 left-3 hidden max-w-xs items-center gap-3 rounded-xl border border-slate-100 bg-white p-4 shadow-xl sm:flex">
-            <ShieldCheck
-              className="h-10 w-10 rounded-lg bg-red-50 p-2 text-brand-red"
-              aria-hidden="true"
-            />
-            <p className="text-xs leading-relaxed text-slate-600">
-              <strong className="block text-slate-900">Soluciones para tu espacio</strong>
-              Vidrio, marcos y perfiles de aluminio según tu requerimiento.
-            </p>
-          </div>
+
         </div>
       </div>
     </section>
@@ -1325,47 +1334,14 @@ function Contact() {
 
         <div className="lg:col-span-7">
           <div className="relative h-80 overflow-hidden rounded-2xl border border-slate-300 bg-[#e5e3df] shadow-[0_20px_40px_-12px_rgba(15,23,42,0.18)] lg:h-96">
-            <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(#d1cfcb_2px,transparent_2px),linear-gradient(90deg,#d1cfcb_2px,transparent_2px)] [background-size:50px_50px]" />
-            <div className="absolute left-0 right-0 top-1/2 flex h-4 -rotate-3 items-center justify-center border-y border-amber-300 bg-amber-100/90">
-              <span className="text-[9px] font-bold uppercase tracking-wider text-amber-800">
-                Av. Brasil · Cdra 8
-              </span>
-            </div>
-            <div className="absolute inset-y-0 left-1/3 flex w-4 rotate-6 items-center justify-center border-x border-slate-400 bg-slate-200">
-              <span className="rotate-90 whitespace-nowrap text-[8px] font-bold uppercase tracking-wider text-slate-700">
-                Jr. Juan Pablo Fernandini
-              </span>
-            </div>
-            <div className="absolute right-8 top-8 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-center shadow">
-              <span className="block text-[10px] font-bold text-slate-700">
-                La Rambla Brasil
-              </span>
-              <span className="text-[9px] text-slate-500">Al costado</span>
-            </div>
-            <div className="absolute inset-0 z-10 flex items-center justify-center">
-              <div className="text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-brand-red text-white shadow-2xl">
-                  <MapPin className="h-6 w-6 fill-current" aria-hidden="true" />
-                </div>
-                <div className="mt-2 rounded-lg bg-brand-navy px-3.5 py-1.5 text-xs font-bold text-white shadow-xl">
-                  Vidriería - Aluminios & Marquería “Vilcapoma”
-                  <span className="block text-[10px] font-medium text-slate-200">
-                    {brand.addressLine1}
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="absolute bottom-4 right-4 z-20 flex items-center gap-3 rounded-lg border border-slate-200 bg-white/95 p-2.5 text-xs shadow backdrop-blur-md">
-              <span className="font-medium text-slate-700">Breña, Lima</span>
-              <a
-                href={brand.maps}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold text-brand-blue hover:underline"
-              >
-                Cómo llegar
-              </a>
-            </div>
+            <img
+              src="/assets/mapa-vilcapoma-brena.webp"
+              alt="Mapa de ubicación de Vidriería - Aluminios & Marquería Vilcapoma en Breña, cerca de La Rambla Brasil"
+              width={1138}
+              height={650}
+              className="h-full w-full object-cover object-center"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
